@@ -26,7 +26,7 @@ HEADERS += \
     PreviewPage.h \
     Renderer.h
 
-LIBS += -L"$$_PRO_FILE_PWD_/ext/bin/" -ldocmala -loutputPluginHtml
+LIBS += -L"$$_PRO_FILE_PWD_/ext/bin/" -L"$$_PRO_FILE_PWD_/ext/lib/" -ldocmala -loutputPluginHtml
 INCLUDEPATH += "$$_PRO_FILE_PWD_/ext/include/"
 INCLUDEPATH += "C:/Boost/include/boost-1_63/"
 
