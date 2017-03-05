@@ -13,7 +13,7 @@ Renderer::Renderer(Settings *settings)
 
     _renderTimer.moveToThread(&_renderThread);
     _renderTimer.setSingleShot(true);
-    _renderTimer.setInterval(100);
+    _renderTimer.setInterval(1);
     connect( &_renderTimer, &QTimer::timeout, this, &Renderer::render, Qt::DirectConnection);
 }
 
@@ -31,7 +31,7 @@ void Renderer::update(const Renderer::RenderInput &input)
     {
         QMutexLocker locker(&_mutex);
         _lastInput = input;
-        _pluginDir = _settings->docmalaInstallDir().path() + "/plugins";
+        _pluginDir = _settings->docmalaInstallDir().path();
     }
     QMetaObject::invokeMethod(&_renderTimer, "start", Qt::QueuedConnection);
 }
